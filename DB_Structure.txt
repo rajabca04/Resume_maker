@@ -1,0 +1,20 @@
+Database | Make_resume
+Table:students
+	->name
+	->Email
+	->contact
+	->Streem
+	->Technology
+	->exprience
+	->Description
+	
+
+
+Usefull commands:l
+	php artisan make:migration create_student_table --create=student
+
+	php artisan migrate
+
+ 	php artisan make:controller StudentController
+
+ 	php artisan migrate:refresh
