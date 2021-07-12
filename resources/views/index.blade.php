@@ -5,23 +5,32 @@
     <div class="container mt-3">
         <div class="row">
             <div class="col-lg-9">
-               <table>
-                   @foreach ($data as $item)
+                <table class="table">
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Gmail</th>
+                        <th>contact</th>
+                    </tr>
+                    @foreach ($data as $item)
+                        <tr>
+                            <td>{{$item->id}}</td>
+                            <td>{{$item->name}}</td>
+                            <td>{{$item->email}}</td>
+                            <td>{{$item->contact}}</td>
+                            <td><a href="" class="btn btn-info">View</a></td>
+                            <td><a href="" class="btn btn-dark">Modify</a></td>
+                            <td><a href="" class="btn btn-danger">Kill</a></td>
+                        </tr>
 
+                    @endforeach
 
-                   <td>{{ $item ->id}},</td>
-                   <td>{{ $item ->name}},</td>
-                   <td>{{ $item ->email}},</td>
-                   <td>{{ $item ->contact}},</td>
-                   <td>{{ $item ->streem}},</td>
-                   <td>{{ $item ->technology}},</td>
-                   <td>{{ $item ->exprience}},</td>
-                   <td>{{ $item ->description}}</td>
-                   @endforeach
-               </table>
+                </table>
+
             </div>
             <div class="col-lg-3">
                 <div class="card bg-info">
+                    <div class="mx-auto mt-3    "><h4>Make your resume.</h4></div>
                     <div class="card-body">
                         <form action="{{ route('input') }}" method="POST">
                             @csrf
@@ -51,7 +60,7 @@
                             </div>
                             <div class="mb-2">
                                 <label for="">Description:</label>
-                                <textarea name="description" id="" cols="30" rows="4" class="form-control"></textarea>
+                                <textarea name="description" id="" cols="30" rows="3" class="form-control"></textarea>
                             </div>
 
                                 <input type="submit" class="btn btn-dark w-100">

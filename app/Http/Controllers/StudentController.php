@@ -26,4 +26,29 @@ class StudentController extends Controller
 
         return redirect()->back();
     }
+
+    public function Update($id){
+        $data = DB::table('student')->find($id);
+        return view("updata",["item"=>$data]);
+    }
+
+    public function Modify(Request $req,$id){
+        $data = DB::table('student')->where("id",$id)->update([
+            "name" =>$req->name,
+            "email" =>$req->email,
+            "contact" =>$req->contact,
+            "streem" =>$req->streem,
+            "technology" =>$req->technology,
+            "exprience" =>$req->exprience,
+            "description" =>$req->description
+        ]);
+
+        return redirect()->route("homepage");
+    }
+
+    public function delete($id){
+        DB::table('student')->where("id",$id)->delete();
+        return redirect()->back();
+    }
+
 }
